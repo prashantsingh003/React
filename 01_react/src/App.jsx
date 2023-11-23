@@ -14,12 +14,22 @@ function App() {
     setCounter(val);
     console.log('value subtracted');
   }
+  const addFive=()=>{
+    setCounter(prevCount=>prevCount+1)
+    setCounter(prevCount=>prevCount+1)
+    setCounter(prevCount=>prevCount+1)
+    setCounter(prevCount=>prevCount+1)
+    setCounter(prevCount=>prevCount+1)
+  }
   return (
     <>
     <h1>Chai aur react</h1>
     <h2>Counter value: {counter}</h2>
     <button onClick={addVal}>Add 1</button>
     <button onClick={removeVal}>Subtract 1</button>
+    <br />
+    
+    <button onClick={addFive}>Add 1 Five Times</button>
     </>
   )
 }
