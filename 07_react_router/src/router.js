@@ -1,8 +1,15 @@
-import { createBrowserRouter } from "react-router-dom"
-import { About, Contact, Home } from "./components"
+import { Route, createBrowserRouter, createRoutesFromElements } from "react-router-dom"
+import { About, Contact, Home, User } from "./components"
 import Layout from "./Layout.jsx";
-const Router=createBrowserRouter([
-  {
+const Router=createBrowserRouter(
+  // createRoutesFromElements(
+	// 	<Route path="/" element={<Layout/>}>
+	// 		<Route path="" element={<Home/>}/>
+	// 		<Route path="about" element={<About/>}/>
+	// 		<Route path="contact" element={<Contact/>}/>
+	// 	</Route>
+	// )
+	[{
     path:'/',
     element:Layout(),
     children:[
@@ -17,8 +24,12 @@ const Router=createBrowserRouter([
       {
         path:'contact',
         element:Contact()
-      }
+      },
+      {
+        path:'user/:id',
+        element:User()
+      },
     ]
-  }
-])
+  }]
+)
 export default Router;
