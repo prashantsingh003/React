@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react"
+import { useLoaderData } from "react-router-dom";
 
 export default function Github(){
-	const [user,setUser]=useState([]);
-	useEffect(()=>{
-		fetch('https://api.github.com/users/prashantsingh003')
-			.then(res=>res.json())
-			.then(res=>{setUser(res); return res;})
-			.then((res)=>console.log(res))
-	},[])
+	// const [user,setUser]=useState([]);
+	// useEffect(()=>{
+	// 	getGithub().then(res=>setUser(res))
+	// },[])
+	const user=useLoaderData()
 	return (
 		<>
 		<h2 className="text-center bg-gradient-to-r from-gray-700 to-slate-200 text-white text-3xl m-7">
@@ -19,4 +18,10 @@ export default function Github(){
 		</h2>
 		</>
 	)
+}
+export const getGithub=async()=>{
+	let res = await fetch('https://api.github.com/users/prashantsingh003')
+	res=res.json();
+	console.log(res)
+	return res;
 }
