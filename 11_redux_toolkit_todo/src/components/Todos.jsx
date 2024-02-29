@@ -1,8 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
-import { deleteTodo, updateTodo } from "../features/todo/todoSlice";
+import { deleteTodo, updateTodo } from "../app/todo/todoSlice";
+import { useEffect } from "react";
 export function Todos() {
 	const dispatch = useDispatch();
 	const todos = useSelector(state => state.todos);
+	useEffect(()=>{console.log('todos were changed'),[todos]})
 	return (
 		<>
 			<div>

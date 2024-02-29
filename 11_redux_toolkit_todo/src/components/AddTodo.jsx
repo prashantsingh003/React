@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { useState } from 'react';
-import { addTodo } from '../features/todo/todoSlice'
+import { addTodo, delayedAddtionOfTodo } from '../app/todo/todoSlice'
 export function AddTodo() {
 	const [todoMsg, setTodoMsg] = useState('');
 	const dispatch = useDispatch();
@@ -10,6 +10,11 @@ export function AddTodo() {
 		if (!todoMsg) return;
 		dispatch(addTodo(todoMsg))
 		setTodoMsg('')
+	}
+	const delayedSubmit=()=>{
+		if (!todoMsg) return;
+		// dispatch(delayedAddtionOfTodo(todoMsg))
+		// setTodoMsg('')
 	}
 	return (
 		<>
@@ -24,6 +29,9 @@ export function AddTodo() {
 				<button type="submit" className="rounded-r-lg px-3 py-1 bg-green-600 text-white shrink-0">
 					Add
 				</button>
+				{/* <button onClick={delayedSubmit} className="rounded-r-lg px-3 py-1 bg-green-600 text-white shrink-0">
+					Add After delay
+				</button> */}
 			</form>
 		</>
 	)
